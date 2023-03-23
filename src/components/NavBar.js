@@ -1,135 +1,59 @@
-// import React from "react";
-// import { NavLink } from "react-router-dom";
-// import Moment from "react-moment";
-
-// // import styles from "./Navbar.styles.css";
-
-// function NavBar() {
-//   return (
-//     <ul className="nav nav-tabs">
-//       <li className="nav-item">
-//         <NavLink
-//           to="/"
-//           end
-//           className={({ isActive }) =>
-//             isActive ? "nav-link active" : "nav-link"
-//           }
-//         >
-//           Home
-//         </NavLink>
-//       </li>
-//       <li className="nav-item">
-//         <NavLink
-//           to="pieChart"
-//           className={({ isActive }) =>
-//             isActive ? "nav-link active" : "nav-link"
-//           }
-//         >
-//           Pie Chart
-//         </NavLink>
-//       </li>
-//       <li className="nav-item">
-//         <NavLink
-//           to="forecast"
-//           className={({ isActive }) =>
-//             isActive ? "nav-link active" : "nav-link"
-//           }
-//         >
-//           Forecast
-//         </NavLink>
-//       </li>
-//       <li className="nav-item">
-//         <NavLink
-//           to="summary"
-//           end
-//           className={({ isActive }) =>
-//             isActive ? "nav-link active" : "nav-link"
-//           }
-//         >
-//           Summary
-//         </NavLink>
-//       </li>
-//       <li>
-//         <Moment format="dddd, DD MMMM YYYY"></Moment>
-//       </li>
-//     </ul>
-//   );
-// }
-
-// export default NavBar;
-
-import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Menu,
-  MenuItem,
-  Typography,
-  IconButton,
-  Stack,
-  Button,
-} from "@mui/material";
+import * as React from "react";
 import { styled } from "@mui/material/styles";
-import { green, red } from "@mui/material/colors";
-import SavingsIcon from "@mui/icons-material/Savings";
-import { NavLink as Router, Switch, Route } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import MoreIcon from "@mui/icons-material/MoreVert";
 
-const useStyles = styled((theme) => ({
-  navlinks: {
-    marginLeft: theme.spacing(10),
-    display: "flex",
-  },
-  logo: {
-    flexGrow: "1",
-    cursor: "pointer",
-  },
-  link: {
-    textDecoration: "none",
-    color: "white",
-    fontSize: "20px",
-    marginLeft: theme.spacing(20),
-    "&:hover": {
-      color: "yellow",
-      borderBottom: "1px solid white",
-    },
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+  alignItems: "flex-start",
+  paddingTop: theme.spacing(1),
+  paddingBottom: theme.spacing(2),
+  // Override media queries injected by theme.mixins.toolbar
+  "@media all": {
+    minHeight: 128,
   },
 }));
 
-function NavBar() {
-  const classes = useStyles();
-
+export default function NavBar() {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="logo">
-          <SavingsIcon />
-        </IconButton>
-
-        <Typography variant="h6" sx={{ flexGrow: 1 }} className={classes.logo}>
-          Personal Financial Planner
-        </Typography>
-        <Stack direction="row" spacing={2}>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">Charts</Button>
-          <Button color="inherit">Forecast</Button>
-          <Button color="inherit">Summary</Button>
-        </Stack>
-        {/* <div className={classes.navlinks}>
-          <NavLink to="/" className={classes.link}>
-            Home
-          </NavLink>
-          <NavLink to="/about" className={classes.link}>
-            About
-          </NavLink>
-          <NavLink to="/contact" className={classes.link}>
-            Contact
-          </NavLink>
-          <NavLink to="/faq" className={classes.link}>
-            FAQ
-          </NavLink>
-        </div> */}
-      </Toolbar>
-    </AppBar>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <StyledToolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            variant="h5"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, alignSelf: "flex-end" }}
+          >
+            MUI
+          </Typography>
+          <IconButton size="large" aria-label="search" color="inherit">
+            <SearchIcon />
+          </IconButton>
+          <IconButton
+            size="large"
+            aria-label="display more actions"
+            edge="end"
+            color="inherit"
+          >
+            <MoreIcon />
+          </IconButton>
+        </StyledToolbar>
+      </AppBar>
+    </Box>
   );
 }
-export default NavBar;
