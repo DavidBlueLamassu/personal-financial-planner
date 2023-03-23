@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Moment from 'react-moment';
 
 function NavBar() {
   return (
@@ -45,6 +46,10 @@ function NavBar() {
         >
           Summary
         </NavLink>
+      </li>
+      <li>
+        <Moment format="dddd, DD MMMM YYYY">
+        </Moment>
       </li>
     </ul>
   );
