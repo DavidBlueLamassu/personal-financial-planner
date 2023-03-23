@@ -1,8 +1,13 @@
 import React from "react";
 import "./App.css";
+import { Header } from "./components/Header";
 
 function App() {
-  return <div className="App">Bootcamp Project 2</div>;
+  return (
+    <div>
+      <header />
+    </div>
+  );
 }
 
 export default App;
