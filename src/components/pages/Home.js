@@ -1,3 +1,5 @@
+import acquireData from "./AcquireData.js"
+
 function Home() {
   return (
     <div>
@@ -9,7 +11,7 @@ function Home() {
         earlier financial assessment click REVIEW. If you would like to delete
         all financial data held in this system click CLEAR.
       </p>
-      <button>START</button>
+      <button onClick={acquireData}>START</button>
       <button>REVIEW</button>
       <button>CLEAR</button>
     </div>

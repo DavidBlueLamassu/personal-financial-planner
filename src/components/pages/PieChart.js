@@ -1,6 +1,16 @@
 import React from "react";
+import { PieChart } from 'react-minimal-pie-chart';
+import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json"
+import DemoIncomePieChart from "./assets/DemoIncomePieChart.json"
 
-function PieChart() {
+const styles = {
+  chart: {
+    height: "250px",
+    width: "250px"
+  }
+}
+
+function Chart() {
   return (
     <div>
       <h1>Pie Charts</h1>
@@ -11,8 +21,14 @@ function PieChart() {
         semper imperdiet. Praesent euismod mi justo, faucibus scelerisque risus cursus in. Sed
         rhoncus mollis diam, sit amet facilisis lectus blandit at.
       </p>
+      <PieChart
+        style={styles.chart} data={DemoIncomePieChart}
+      />
+      <PieChart
+      style={styles.chart} data={DemoExpensesPieChart}
+      />
     </div>
   );
 }
 
-export default PieChart;
+export default Chart;
