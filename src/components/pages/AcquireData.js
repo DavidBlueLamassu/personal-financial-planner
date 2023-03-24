@@ -71,7 +71,6 @@ function jsonStorage() {
     console.log(savingsArray);
     console.log(incomeArray);
     console.log(expensesArray);
-    Name();
 }
 
 function colorSelector() {
