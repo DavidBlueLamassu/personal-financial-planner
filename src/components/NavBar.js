@@ -1,58 +1,42 @@
-
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Moment from 'react-moment';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import Moment from "react-moment";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Stack,
+  Button,
+} from "@mui/material";
+import SavingsIcon from "@mui/icons-material/Savings";
 
 function NavBar() {
   return (
-    <ul className="nav nav-tabs">
-      <li className="nav-item">
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          Home
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          to="pieChart"
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          Pie Chart
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          to="forecast"
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          Forecast
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          to="summary"
-          end
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-        >
-          Summary
-        </NavLink>
-      </li>
-      <li>
-        <Moment format="dddd, DD MMMM YYYY">
-        </Moment>
-      </li>
-    </ul>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton size="large" edge="start" color="inherit" aria-label="logo">
+          <SavingsIcon />
+        </IconButton>
+        <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
+          PERSONAL FINANCIAL PLANNER
+        </Typography>
+        <Stack direction="row" spacing={2}>
+          <Button color="inherit" href="/">
+            HOME
+          </Button>
+          <Button color="inherit" href="/PieChart">
+            CHARTS
+          </Button>
+          <Button color="inherit" href="/Forecast">
+            FORECAST
+          </Button>
+          <Button color="inherit" href="/Summary">
+            SUMMARY
+          </Button>
+        </Stack>
+      </Toolbar>
+    </AppBar>
   );
 }
 
