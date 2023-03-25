@@ -1,7 +1,11 @@
 import React from "react";
 import { PieChart } from 'react-minimal-pie-chart';
-import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json"
-import DemoIncomePieChart from "./assets/DemoIncomePieChart.json"
+import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json";
+import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
+import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
+import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
+import IncomeLegend from "./DemoIncomeLegend.js";
+import ExpensesLegend from "./DemoExpensesLegend.js";
 
 const styles = {
   chart: {
@@ -24,11 +28,46 @@ function Chart() {
       <PieChart
         style={styles.chart} data={DemoIncomePieChart}
       />
+      <h4>Income Breakdown:</h4>
+      {legendMakerIncome()}
       <PieChart
       style={styles.chart} data={DemoExpensesPieChart}
       />
+      <h4>Expenses Breakdown:</h4>
+      {legendMakerExpenses()}
     </div>
   );
+}
+
+function legendMakerIncome() {
+  
+  return ( <div style={styles.legendContainer}>
+    {
+    DemoIncomePieChartKeyed.map(function(currentObject) {
+         return <IncomeLegend 
+          key={currentObject.id}
+          title={currentObject.title} 
+          value={currentObject.value}
+          color={currentObject.color} />
+    })
+    }
+  </div>
+  )
+}
+
+function legendMakerExpenses() {
+  return ( <div style={styles.legendContainer}>
+    {
+    DemoExpensesPieChartKeyed.map(function(currentObject) {
+          return <ExpensesLegend 
+          key={currentObject.id}
+          title={currentObject.title} 
+          value={currentObject.value}
+          color={currentObject.color} />
+    })
+    }
+  </div>
+  )
 }
 
 export default Chart;
