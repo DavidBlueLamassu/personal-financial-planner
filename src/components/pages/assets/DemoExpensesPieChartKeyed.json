@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Rent",
+        "value": 700,
+        "color": "#6A2135"
+    },
+    {
+        "id": 4,
+        "title": "Groceries",
+        "value": 200,
+        "color": "#F71A05"
+    },
+    {
+        "id": 7,
+        "title": "Entertainment",
+        "value": 150,
+        "color": "#CD05F7"
+    },
+    {
+        "id": 3,
+        "title": "Electricity",
+        "value": 100,
+        "color": "#05F5F7"
+    },
+    {
+        "id": 6,
+        "title": "Council Tax",
+        "value": 100,
+        "color": "#F78F05"
+    },
+    {
+        "id": 2,
+        "title": "Water",
+        "value": 50,
+        "color": "#C13C37"
+    },
+    {
+        "id": 5,
+        "title": "Internet",
+        "value": 25,
+        "color": "#F7C805"
+    }
+]
