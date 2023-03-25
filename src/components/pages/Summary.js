@@ -1,4 +1,57 @@
 import React from 'react';
+import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
+import TableMaker from "./TableMaker.js";
+import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
+
+let totalIncome = 0;
+let totalExpenses = 0;
+let balance = 0;
+  for (let i = 0; i < DemoIncomePieChartKeyed.length; i++) {
+        totalIncome = totalIncome + DemoIncomePieChartKeyed[i].value;
+    }
+
+
+  for (let i = 0; i < DemoExpensesPieChartKeyed.length; i++) {
+    totalExpenses = totalExpenses + DemoExpensesPieChartKeyed[i].value;
+  }
+
+balance = totalIncome - totalExpenses; 
+
+const styles = {
+  totalContainer: {
+    marginLeft: "500px"
+  },
+  totalText: {
+    margin: "0",
+    width: "225px",
+    background: "#E5E4E4",
+    borderTop: "1px solid black",
+    paddingLeft: "12px",
+    height: "30px"
+  },
+  totalMainText: {
+    margin: "0",
+    width: "225px",
+    background: "#E5E4E4",
+    paddingLeft: "12px",
+    height: "30px"
+  },
+  total: {
+    position: "relative",
+    width: "65px",
+    background: "#E5E4E4",
+    right: "75px",
+    borderTop: "1px solid black",
+    margin: "0"
+  },
+  totalMain: {
+    position: "relative",
+    width: "65px",
+    background: "#E5E4E4",
+    right: "75px",
+    margin: "0"
+  }
+}
 
 function Summary() {
   return (
@@ -17,8 +70,68 @@ function Summary() {
         conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
         rhoncus. Etiam vel condimentum magna, quis tempor nulla.
       </p>
+      <h4 style={styles.totalContainer}>Monthly Income:</h4>
+      <div style={styles.totalContainer}>
+      {tableMakerIncome()}
+      </div>
+      <div className="row" style={styles.totalContainer}>
+        <p style={styles.totalText}>Total Income:</p>
+        <p style={styles.total}>£{totalIncome}</p>
+      </div>
+      <h4 style={styles.totalContainer}>Monthly Expenses:</h4>
+      <div style={styles.totalContainer}>
+        {tableMakerExpenses()}
+      </div>
+      <div className="row" style={styles.totalContainer}>
+        <p style={styles.totalText}>Total Expenses:</p>
+        <p style={styles.total}>£{totalExpenses}</p>
+      </div>
+      <h4 style={styles.totalContainer}>Monthly Balance</h4>
+      <div className="row" style={styles.totalContainer}>
+        <p style={styles.totalMainText}>Monthly Income</p>
+        <p style={styles.totalMain}>£{totalIncome}</p>
+      </div>
+      <div className="row" style={styles.totalContainer}>
+        <p style={styles.totalMainText}>Monthly Expenses:</p>
+        <p style={styles.totalMain}>£{totalExpenses}</p>
+      </div>
+      <div className="row" style={styles.totalContainer}>
+        <p style={styles.totalText}>Balance:</p>
+        <p style={styles.total}>£{balance}</p>
+      </div>
+
     </div>
   );
+}
+
+function tableMakerIncome() {
+  
+  return ( <div>
+    {
+    DemoIncomePieChartKeyed.map(function(currentObject) {
+         return <TableMaker 
+          key={currentObject.id}
+          title={currentObject.title} 
+          value={currentObject.value} />
+    })
+    }
+  </div>
+  )
+}
+
+function tableMakerExpenses() {
+  
+  return ( <div>
+    {
+    DemoExpensesPieChartKeyed.map(function(currentObject) {
+         return <TableMaker 
+          key={currentObject.id}
+          title={currentObject.title} 
+          value={currentObject.value} />
+    })
+    }
+  </div>
+  )
 }
 
 export default Summary;
