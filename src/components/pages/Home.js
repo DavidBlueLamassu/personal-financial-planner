@@ -24,7 +24,9 @@ export default function ModalWelcome() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Create/Edit profile</Button>
+      <Button variant="contained" color="success" onClick={handleOpen}>
+        Create/Edit profile
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
