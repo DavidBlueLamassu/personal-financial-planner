@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: #edf5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  min-height: 100vh;
+  margin: 0;
+  /* font-family: "Lato", sans-serif; */
+}
+
+Button {
+  color: yellow;
+}
+
+.MuiTypography-h4 {
+  font-family: "Courier New", Courier, monospace;
+  color: yellow;
+}
