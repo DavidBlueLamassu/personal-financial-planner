@@ -13,6 +13,7 @@ function App() {
       <NavBar />
       {/* Wrap Route elements in a Routes component */}
       <div className="container">
+        <div>{/* <AcquireData /> */}</div>
         <Routes>
           {/* Define routes using the Route component to render different page components at different paths */}
           {/* Define a default route that will render the Home component */}
