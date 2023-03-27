@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { DiagramMaker } from "../../App.js";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -21,13 +23,18 @@ export default function ModalWelcome() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const [pieState, setPieState] = useContext(DiagramMaker);
+  const incomePieChart = JSON.parse(localStorage.getItem("income"));
+  const expensesPieChart = JSON.parse(localStorage.getItem("expenses"));
+  console.log("Home Page");
+  console.log(incomePieChart);
   return (
     <div>
-      <Button variant="contained" color="success" onClick={handleOpen}>
+      <Button onClick={handleOpen}>Create/Edit profile</Button>
+      {/* <Button variant="contained" color="success" onClick={handleOpen}>
         Create/Edit profile
-      </Button>
-      <AcquireData />
+      </Button> */}
+      {/* <AcquireData /> */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -47,7 +54,7 @@ export default function ModalWelcome() {
             click CLEAR.
           </Typography>
           <Button onClick={AcquireData}>START</Button>
-          <Button>REVIEW</Button>
+          <Button onClick={() => setPieState({...pieState, pieArrayIncome: incomePieChart, pieArrayExpenses: expensesPieChart})}>REVIEW</Button>
           <Button>CLEAR</Button>
         </Box>
       </Modal>

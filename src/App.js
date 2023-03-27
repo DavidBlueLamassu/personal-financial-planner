@@ -6,24 +6,35 @@ import Home from "./components/pages/Home";
 import PieChart from "./components/pages/PieChart";
 import Forecast from "./components/pages/Forecast";
 import Summary from "./components/pages/Summary";
+import { createContext, useState } from 'react';
+import DemoExpensesPieChart from "./components/pages/assets/DemoExpensesPieChart.json";
+import DemoIncomePieChart from "./components/pages/assets/DemoIncomePieChart.json";
+
+export const DiagramMaker = createContext();
 
 function App() {
+  const [pieState, setPieState] = useState({
+    pieArrayIncome: DemoIncomePieChart,
+    pieArrayExpenses: DemoExpensesPieChart
+    }); 
   return (
-    <Router>
-      <NavBar />
-      {/* Wrap Route elements in a Routes component */}
-      <div className="container">
-        <div>{/* <AcquireData /> */}</div>
-        <Routes>
-          {/* Define routes using the Route component to render different page components at different paths */}
-          {/* Define a default route that will render the Home component */}
-          <Route path="/" element={<Home />} />
-          <Route path="pieChart" element={<PieChart />} />
-          <Route path="forecast" element={<Forecast />} />
-          <Route path="summary" element={<Summary />} />
-        </Routes>
-      </div>
-    </Router>
+    <DiagramMaker.Provider value={[pieState, setPieState]}>
+      <Router>
+        <NavBar />
+        {/* Wrap Route elements in a Routes component */}
+        <div className="container">
+          <div>{/* <AcquireData /> */}</div>
+          <Routes>
+            {/* Define routes using the Route component to render different page components at different paths */}
+            {/* Define a default route that will render the Home component */}
+            <Route path="/" element={<Home />} />
+            <Route path="pieChart" element={<PieChart />} />
+            <Route path="forecast" element={<Forecast />} />
+            <Route path="summary" element={<Summary />} />
+          </Routes>
+        </div>
+      </Router>
+    </DiagramMaker.Provider>
   );
 }
 

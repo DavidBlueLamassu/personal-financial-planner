@@ -1,7 +1,6 @@
-import React from "react";
+import { useContext } from "react";
+import { DiagramMaker } from "../../App.js";import React from "react";
 import { PieChart } from 'react-minimal-pie-chart';
-import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json";
-import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
 import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
 import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
 import IncomeLegend from "./DemoIncomeLegend.js";
@@ -15,6 +14,7 @@ const styles = {
 }
 
 function Chart() {
+  const [pieState] = useContext(DiagramMaker);
   return (
     <div>
       <h1>Pie Charts</h1>
@@ -26,12 +26,12 @@ function Chart() {
         rhoncus mollis diam, sit amet facilisis lectus blandit at.
       </p>
       <PieChart
-        style={styles.chart} data={DemoIncomePieChart}
+        style={styles.chart} data={pieState.pieArrayIncome}
       />
       <h4>Income Breakdown:</h4>
       {legendMakerIncome()}
       <PieChart
-      style={styles.chart} data={DemoExpensesPieChart}
+      style={styles.chart} data={pieState.pieArrayExpenses}
       />
       <h4>Expenses Breakdown:</h4>
       {legendMakerExpenses()}
