@@ -61,11 +61,12 @@ input {
   border: 2px solid #ffa4a4;
 }
 
-button {
+#submitButton {
   background: rgb(36, 122, 36);
   color: white;
   cursor: pointer;
   border-radius: 4px;
+  margin-top: 50px;
 }
 
 button:disabled {
