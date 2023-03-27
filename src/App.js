@@ -9,13 +9,17 @@ import Summary from "./components/pages/Summary";
 import { createContext, useState } from 'react';
 import DemoExpensesPieChart from "./components/pages/assets/DemoExpensesPieChart.json";
 import DemoIncomePieChart from "./components/pages/assets/DemoIncomePieChart.json";
+import DemoIncomePieChartKeyed from "./components/pages/assets/DemoIncomePieChartKeyed.json";
+import DemoExpensesPieChartKeyed from "./components/pages/assets/DemoExpensesPieChartKeyed.json";
 
 export const DiagramMaker = createContext();
 
 function App() {
   const [pieState, setPieState] = useState({
     pieArrayIncome: DemoIncomePieChart,
-    pieArrayExpenses: DemoExpensesPieChart
+    pieArrayExpenses: DemoExpensesPieChart,
+    tableIncome: DemoIncomePieChartKeyed,
+    tableExpenses: DemoExpensesPieChartKeyed
     }); 
   return (
     <DiagramMaker.Provider value={[pieState, setPieState]}>

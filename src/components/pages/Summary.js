@@ -1,21 +1,9 @@
+import { useContext } from "react";
+import { DiagramMaker } from "../../App.js";
 import React from 'react';
-import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
+// import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
 import TableMaker from "./TableMaker.js";
-import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
-
-let totalIncome = 0;
-let totalExpenses = 0;
-let balance = 0;
-  for (let i = 0; i < DemoIncomePieChartKeyed.length; i++) {
-        totalIncome = totalIncome + DemoIncomePieChartKeyed[i].value;
-    }
-
-
-  for (let i = 0; i < DemoExpensesPieChartKeyed.length; i++) {
-    totalExpenses = totalExpenses + DemoExpensesPieChartKeyed[i].value;
-  }
-
-balance = totalIncome - totalExpenses; 
+// import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
 
 const styles = {
   totalContainer: {
@@ -54,6 +42,17 @@ const styles = {
 }
 
 function Summary() {
+  let totalIncome = 0;
+  let totalExpenses = 0;
+  let balance = 0;
+  const [pieState] = useContext(DiagramMaker);
+  for (let i = 0; i < pieState.tableIncome.length; i++) {
+        totalIncome = totalIncome + pieState.tableIncome[i].value;
+    }
+  for (let i = 0; i < pieState.tableExpenses.length; i++) {
+    totalExpenses = totalExpenses + pieState.tableExpenses[i].value;
+  }
+  balance = totalIncome - totalExpenses; 
   return (
     <div>
       <h1>Summary</h1>
@@ -72,7 +71,7 @@ function Summary() {
       </p>
       <h4 style={styles.totalContainer}>Monthly Income:</h4>
       <div style={styles.totalContainer}>
-      {tableMakerIncome()}
+      {TableMakerIncome()}
       </div>
       <div className="row" style={styles.totalContainer}>
         <p style={styles.totalText}>Total Income:</p>
@@ -80,7 +79,7 @@ function Summary() {
       </div>
       <h4 style={styles.totalContainer}>Monthly Expenses:</h4>
       <div style={styles.totalContainer}>
-        {tableMakerExpenses()}
+        {TableMakerExpenses()}
       </div>
       <div className="row" style={styles.totalContainer}>
         <p style={styles.totalText}>Total Expenses:</p>
@@ -104,11 +103,11 @@ function Summary() {
   );
 }
 
-function tableMakerIncome() {
-  
+function TableMakerIncome() {
+  const [pieState] = useContext(DiagramMaker);
   return ( <div>
     {
-    DemoIncomePieChartKeyed.map(function(currentObject) {
+    pieState.tableIncome.map(function(currentObject) {
          return <TableMaker 
           key={currentObject.id}
           title={currentObject.title} 
@@ -119,11 +118,11 @@ function tableMakerIncome() {
   )
 }
 
-function tableMakerExpenses() {
-  
+function TableMakerExpenses() {
+  const [pieState] = useContext(DiagramMaker);
   return ( <div>
     {
-    DemoExpensesPieChartKeyed.map(function(currentObject) {
+    pieState.tableExpenses.map(function(currentObject) {
          return <TableMaker 
           key={currentObject.id}
           title={currentObject.title} 

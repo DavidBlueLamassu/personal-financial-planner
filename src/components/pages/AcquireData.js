@@ -1,9 +1,12 @@
 const incomeArray = [];
-
+const incomeArrayKey = [];
 const expensesArray = [];
+const expensesArrayKey = [];
 const nameArray = [];
 const savingsArray = [];
 let i = 0;
+let j = 1;
+let k = 1;
 
 function AcquireData() {
     console.log("test");
@@ -28,9 +31,11 @@ function incomeEntry() {
     }
     let numberIncome = parseInt(incomeAmount);
     const incomeObject = {title: incomeName, value: numberIncome, color: colorSelector()};
+    const incomeObjectKey = {id: j, title: incomeName, value: numberIncome, color: colorSelector()}
     console.log("**********");
     console.log(incomeObject);
     incomeArray.push(incomeObject);
+    incomeArrayKey.push(incomeObjectKey);
     console.log(incomeArray);
     let incomeRepeat = prompt(`Would you like to add another source of income ${nameArray[0].subjectName}? Please enter "y" for yes or "n" for no.`)
     if (incomeRepeat !== "y" && incomeRepeat !== "n") {do {incomeRepeat = prompt(`Please enter "y" for yes or "n" for no.`)}
@@ -39,6 +44,7 @@ function incomeEntry() {
     {
         expensesEntry();
     } else if (incomeRepeat === "y") {
+        j++;
         incomeEntry();
     }
 }
@@ -51,7 +57,9 @@ function expensesEntry() {
     }
     let numberExpenses = parseInt(expensesAmount);
     const expensesObject = {title: expensesName, value: numberExpenses, color: colorSelector()};
+    const expensesObjectKey = {id: k, title: expensesName, value: numberExpenses, color: colorSelector()}
     expensesArray.push(expensesObject);
+    expensesArrayKey.push(expensesObjectKey);
     let expensesRepeat = prompt(`Would you like to add another expense? Please enter "y" for yes or "n" for no.`);
     if (expensesRepeat !== "y" && expensesRepeat !== "n") {do {expensesRepeat = prompt(`Please enter "y" for yes or "n" for no.`)}
     while (expensesRepeat !== "y" && expensesRepeat !== "n");
@@ -61,6 +69,7 @@ function expensesEntry() {
         jsonStorage();
 
     } else if (expensesRepeat === "y") {
+        k++;
         expensesEntry();
     }
 }
@@ -70,10 +79,14 @@ function jsonStorage() {
     localStorage.setItem("savings", JSON.stringify(savingsArray));
     localStorage.setItem("income", JSON.stringify(incomeArray));
     localStorage.setItem("expenses", JSON.stringify(expensesArray));
+    localStorage.setItem("incomeKey", JSON.stringify(incomeArrayKey));
+    localStorage.setItem("expensesKey", JSON.stringify(expensesArrayKey));
     console.log(nameArray);
     console.log(savingsArray);
     console.log(incomeArray);
     console.log(expensesArray);
+    j = 1;
+    k = 1;
 }
 
 function colorSelector() {
