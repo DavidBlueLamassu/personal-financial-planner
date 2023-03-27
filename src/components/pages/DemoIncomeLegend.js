@@ -1,6 +1,9 @@
-import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
+import { useContext } from "react";
+import { DiagramMaker } from "../../App.js";
+// import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
 
 function IncomeLegend(props) {
+    const [pieState] = useContext(DiagramMaker);
     let total = 0;
     const styles = {
         container: {
@@ -24,8 +27,8 @@ function IncomeLegend(props) {
             margin: "0"
         }
     }
-    for (let i = 0; i < DemoIncomePieChart.length; i++) {
-        total = total + DemoIncomePieChart[i].value;
+    for (let i = 0; i < pieState.tableIncome.length; i++) {
+        total = total + pieState.tableIncome[i].value;
     }
     const percentage = props.value * 100/total;
     const roundedNumber = percentage.toFixed(0);

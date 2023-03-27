@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { DiagramMaker } from "../../App.js";import React from "react";
 import { PieChart } from 'react-minimal-pie-chart';
-import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
-import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
+// import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
+// import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
 import IncomeLegend from "./DemoIncomeLegend.js";
 import ExpensesLegend from "./DemoExpensesLegend.js";
 
@@ -29,21 +29,21 @@ function Chart() {
         style={styles.chart} data={pieState.pieArrayIncome}
       />
       <h4>Income Breakdown:</h4>
-      {legendMakerIncome()}
+      {LegendMakerIncome()}
       <PieChart
       style={styles.chart} data={pieState.pieArrayExpenses}
       />
       <h4>Expenses Breakdown:</h4>
-      {legendMakerExpenses()}
+      {LegendMakerExpenses()}
     </div>
   );
 }
 
-function legendMakerIncome() {
-  
+function LegendMakerIncome() {
+  const [pieState] = useContext(DiagramMaker);
   return ( <div style={styles.legendContainer}>
     {
-    DemoIncomePieChartKeyed.map(function(currentObject) {
+    pieState.tableIncome.map(function(currentObject) {
          return <IncomeLegend 
           key={currentObject.id}
           title={currentObject.title} 
@@ -55,10 +55,11 @@ function legendMakerIncome() {
   )
 }
 
-function legendMakerExpenses() {
+function LegendMakerExpenses() {
+  const [pieState] = useContext(DiagramMaker);
   return ( <div style={styles.legendContainer}>
     {
-    DemoExpensesPieChartKeyed.map(function(currentObject) {
+    pieState.tableExpenses.map(function(currentObject) {
           return <ExpensesLegend 
           key={currentObject.id}
           title={currentObject.title} 
