@@ -26,6 +26,8 @@ export default function ModalWelcome() {
   const [pieState, setPieState] = useContext(DiagramMaker);
   const incomePieChart = JSON.parse(localStorage.getItem("income"));
   const expensesPieChart = JSON.parse(localStorage.getItem("expenses"));
+  const incomePieChartKey = JSON.parse(localStorage.getItem("incomeKey"));
+  const expensesPieChartKey = JSON.parse(localStorage.getItem("expensesKey"));
   console.log("Home Page");
   console.log(incomePieChart);
   return (
@@ -54,7 +56,8 @@ export default function ModalWelcome() {
             click CLEAR.
           </Typography>
           <Button onClick={AcquireData}>START</Button>
-          <Button onClick={() => setPieState({...pieState, pieArrayIncome: incomePieChart, pieArrayExpenses: expensesPieChart})}>REVIEW</Button>
+          <Button onClick={() => setPieState({...pieState, pieArrayIncome: incomePieChart, pieArrayExpenses: expensesPieChart, 
+        tableIncome: incomePieChartKey, tableExpenses: expensesPieChartKey})}>REVIEW</Button>
           <Button>CLEAR</Button>
         </Box>
       </Modal>
