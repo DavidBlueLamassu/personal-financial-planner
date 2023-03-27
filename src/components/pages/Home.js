@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import acquireData from "./AcquireData";
+import AcquireData from "./AcquireData";
 
 const style = {
   position: "absolute",
@@ -24,7 +24,10 @@ export default function ModalWelcome() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Create/Edit profile</Button>
+      <Button variant="contained" color="success" onClick={handleOpen}>
+        Create/Edit profile
+      </Button>
+      <AcquireData />
       <Modal
         open={open}
         onClose={handleClose}
@@ -43,7 +46,7 @@ export default function ModalWelcome() {
             If you would like to delete all financial data held in this system
             click CLEAR.
           </Typography>
-          <Button onClick={acquireData}>START</Button>
+          <Button onClick={AcquireData}>START</Button>
           <Button>REVIEW</Button>
           <Button>CLEAR</Button>
         </Box>
