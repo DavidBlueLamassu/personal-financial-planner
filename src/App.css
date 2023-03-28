@@ -72,3 +72,11 @@ input {
 button:disabled {
   cursor: default;
 }
+
+.expensesPie {
+  padding-left: 25px;
+}
+
+.incomePie {
+  padding-right: 25px;
+}

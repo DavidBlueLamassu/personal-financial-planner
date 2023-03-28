@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 // import Moment from "react-moment";
 import {
   AppBar,
@@ -71,11 +71,36 @@ function NavBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              {/* {pages.map((page) => ( */}
+              <MenuItem
+                component={NavLink}
+                to="/Home"
+                onClick={handleCloseNavMenu}
+              >
+                HOME
+              </MenuItem>
+              <MenuItem
+                component={NavLink}
+                to="/PieChart"
+                onClick={handleCloseNavMenu}
+              >
+                CHARTS
+              </MenuItem>
+              <MenuItem
+                component={NavLink}
+                to="/Forecast"
+                onClick={handleCloseNavMenu}
+              >
+                FORECAST
+              </MenuItem>
+
+              <MenuItem
+                component={NavLink}
+                to="/Summary"
+                onClick={handleCloseNavMenu}
+              >
+                SUMMARY
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -83,32 +108,34 @@ function NavBar() {
             className="navTitle"
             variant="h4"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}
+            sx={{ flexGrow: 1, display: { xs: "flex" } }}
           >
             PERSONAL FINANCIAL PLANNER
           </Typography>
-          <Stack direction="row" spacing={2} sx={{ display: { sm: "flex" } }}>
-            <Button color="inherit" component={NavLink} to="/">
-              HOME
-            </Button>
-            <Button color="inherit" component={NavLink} to="/PieChart">
-              CHARTS
-            </Button>
-            <Button color="inherit" component={NavLink} to="/Forecast">
-              FORECAST
-            </Button>
-            <Button color="inherit" component={NavLink} to="/Summary">
-              SUMMARY
-            </Button>
-            <NavLink
-              to="//form"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
-              {/* Form */}
-            </NavLink>
-          </Stack>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
+            <Stack direction="row" spacing={2}>
+              <Button color="inherit" component={NavLink} to="/">
+                HOME
+              </Button>
+              <Button color="inherit" component={NavLink} to="/PieChart">
+                CHARTS
+              </Button>
+              <Button color="inherit" component={NavLink} to="/Forecast">
+                FORECAST
+              </Button>
+              <Button color="inherit" component={NavLink} to="/Summary">
+                SUMMARY
+              </Button>
+              <NavLink
+                to="//form"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                {/* Form */}
+              </NavLink>
+            </Stack>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
