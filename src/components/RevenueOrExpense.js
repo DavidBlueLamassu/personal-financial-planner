@@ -5,11 +5,11 @@ export const RevenueOrExpense = () => {
     <div>
       <div>
         <h4>Income</h4>
-        <p>$00.00</p>
+        <p>£00.00</p>
       </div>
       <div>
         <h4>Expense</h4>
-        <p>$00.00</p>
+        <p>£00.00</p>
       </div>
     </div>
   );

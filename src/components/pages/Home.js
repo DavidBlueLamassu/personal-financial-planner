@@ -5,7 +5,10 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import AcquireData from "./AcquireData";
+import Balance from "../Balance.js";
+import AcquireData from "./AcquireData.js";
+import { RevenueOrExpense } from "../RevenueOrExpense.js";
+import TransactionForm from "./TransactionForm.js";
 
 const style = {
   position: "absolute",
@@ -32,11 +35,17 @@ export default function ModalWelcome() {
   console.log(incomePieChart);
   return (
     <div>
-      <Button onClick={handleOpen}>Create/Edit profile</Button>
-      {/* <Button variant="contained" color="success" onClick={handleOpen}>
+      {/* <Button onClick={handleOpen}>Create/Edit profile</Button> */}
+      <Button variant="contained" color="success" onClick={handleOpen}>
         Create/Edit profile
-      </Button> */}
-      {/* <AcquireData /> */}
+      </Button>
+      <div className="balanceStat">
+        <RevenueOrExpense />
+        <Balance />
+      </div>
+      <div>
+        <TransactionForm />
+      </div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -56,8 +65,19 @@ export default function ModalWelcome() {
             click CLEAR.
           </Typography>
           <Button onClick={AcquireData}>START</Button>
-          <Button onClick={() => setPieState({...pieState, pieArrayIncome: incomePieChart, pieArrayExpenses: expensesPieChart, 
-        tableIncome: incomePieChartKey, tableExpenses: expensesPieChartKey})}>REVIEW</Button>
+          <Button
+            onClick={() =>
+              setPieState({
+                ...pieState,
+                pieArrayIncome: incomePieChart,
+                pieArrayExpenses: expensesPieChart,
+                tableIncome: incomePieChartKey,
+                tableExpenses: expensesPieChartKey,
+              })
+            }
+          >
+            REVIEW
+          </Button>
           <Button>CLEAR</Button>
         </Box>
       </Modal>
