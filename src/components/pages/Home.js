@@ -9,6 +9,8 @@ import Balance from "../Balance.js";
 import AcquireData from "./AcquireData.js";
 import { RevenueOrExpense } from "../RevenueOrExpense.js";
 import TransactionForm from "./TransactionForm.js";
+import { Link, Route, Routes } from 'react-router-dom';
+import Form from './Forms.js';
 
 const style = {
   position: "absolute",
@@ -81,6 +83,16 @@ export default function ModalWelcome() {
           <Button>CLEAR</Button>
         </Box>
       </Modal>
+      <Link to="form" role="button" className="btn btn-link">
+        Open Form
+      </Link>
+      <Link to="/" role="button" className="btn btn-link">
+        Close Form
+      </Link>
+      <Routes>
+        <Route path="form" element={<Form />} />
+      </Routes>
+
     </div>
   );
 }
