@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import Moment from "react-moment";
+// import Moment from "react-moment";
 import {
   AppBar,
   Toolbar,
@@ -8,11 +8,11 @@ import {
   Typography,
   Stack,
   Button,
-  styled,
-  Box,
+  // styled,
+  // Box,
 } from "@mui/material";
 import SavingsIcon from "@mui/icons-material/Savings";
-import { TabList, TabPanel, TabContext } from "@mui/lab";
+// import { TabList, TabPanel, TabContext } from "@mui/lab";
 
 // const useStyles = makeStyles({
 //   button: {
@@ -56,6 +56,14 @@ function NavBar() {
           <Button color="inherit" component={NavLink} to="/Summary">
             SUMMARY
           </Button>
+          <NavLink
+            to="//form"
+            className={({ isActive }) =>
+            isActive ? 'nav-link active' : 'nav-link'
+          }
+          >
+            Form
+          </NavLink>
         </Stack>
       </Toolbar>
     </AppBar>
