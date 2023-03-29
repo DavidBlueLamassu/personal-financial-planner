@@ -2,12 +2,8 @@ import { useContext } from "react";
 import { DiagramMaker } from "../../App.js";
 import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
-// import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
-// import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
 import IncomeLegend from "./DemoIncomeLegend.js";
 import ExpensesLegend from "./DemoExpensesLegend.js";
-
-const demoUser = "Jane Smith";
 
 const styles = {
   chart: {
@@ -21,7 +17,7 @@ function Chart() {
   return (
     <div>
       <div className="row">
-        <h1>{demoUser}'s Finances</h1>
+        <h1>{pieState.name}'s Finances</h1>
       </div>
       <div className="d-flex justify-content-center">
         <div className="row incomePie">

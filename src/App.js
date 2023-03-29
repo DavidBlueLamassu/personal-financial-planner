@@ -14,6 +14,8 @@ import DemoExpensesPieChartKeyed from "./components/pages/assets/DemoExpensesPie
 import FormName from './components/pages/FormName';
 import FormIncome from './components/pages/FormIncome';
 import FormExpenses from './components/pages/FormExpenses';
+import DemoName from './components/pages/assets/DemoName.json';
+import DemoSavings from './components/pages/assets/DemoSavings.json';
 
 export const DiagramMaker = createContext();
 
@@ -22,7 +24,9 @@ function App() {
     pieArrayIncome: DemoIncomePieChart,
     pieArrayExpenses: DemoExpensesPieChart,
     tableIncome: DemoIncomePieChartKeyed,
-    tableExpenses: DemoExpensesPieChartKeyed
+    tableExpenses: DemoExpensesPieChartKeyed,
+    name: DemoName,
+    savings: DemoSavings
     }); 
   return (
     <DiagramMaker.Provider value={[pieState, setPieState]}>

@@ -13,6 +13,8 @@ import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json";
 import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
 import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
 import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
+import DemoName from './assets/DemoName.json';
+import DemoSavings from './assets/DemoSavings.json';
 
 const style = {
   position: "absolute",
@@ -35,6 +37,8 @@ export default function ModalWelcome() {
   const expensesPieChart = JSON.parse(localStorage.getItem("expenses"));
   const incomePieChartKey = JSON.parse(localStorage.getItem("incomeKey"));
   const expensesPieChartKey = JSON.parse(localStorage.getItem("expensesKey"));
+  const username = localStorage.getItem("username");
+  const userSavings = localStorage.getItem("savings");
   console.log("Home Page");
   console.log(incomePieChart);
   return (
@@ -80,6 +84,8 @@ export default function ModalWelcome() {
                 pieArrayExpenses: expensesPieChart,
                 tableIncome: incomePieChartKey,
                 tableExpenses: expensesPieChartKey,
+                name: username,
+                savings: userSavings
               })
             }}
           >
@@ -93,6 +99,8 @@ export default function ModalWelcome() {
                 pieArrayExpenses: DemoExpensesPieChart,
                 tableIncome: DemoIncomePieChartKeyed,
                 tableExpenses: DemoExpensesPieChartKeyed,
+                name: DemoName,
+                savings: DemoSavings
               })
             }}
           >CLEAR</Button>

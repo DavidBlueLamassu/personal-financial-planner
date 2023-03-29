@@ -3,8 +3,6 @@ import { DiagramMaker } from "../../App.js";
 import React from 'react';
 import TableMaker from "./TableMaker.js";
 
-const demoUser = "Jane Smith";
-
 const styles = {
   totalContainer: {
     marginLeft: "500px"
@@ -55,7 +53,7 @@ function Summary() {
   balance = totalIncome - totalExpenses; 
   return (
     <div>
-      <h1>Summary of {demoUser}'s Monthly Income and Expenditure</h1>
+      <h1>Summary of {pieState.name}'s Monthly Income and Expenditure</h1>
       
       <h4 style={styles.totalContainer}>Monthly Income:</h4>
       <div style={styles.totalContainer}>
