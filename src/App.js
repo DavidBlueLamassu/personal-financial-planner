@@ -15,9 +15,11 @@ import FormName from './components/pages/FormName';
 import FormIncome from './components/pages/FormIncome';
 import FormExpenses from './components/pages/FormExpenses';
 import DemoName from './components/pages/assets/DemoName.json';
-import DemoSavings from './components/pages/assets/DemoSavings.json';
+// import DemoSavings from './components/pages/assets/DemoSavings.json';
 
 export const DiagramMaker = createContext();
+
+const DemoSavings = 5000;
 
 function App() {
   const [pieState, setPieState] = useState({
