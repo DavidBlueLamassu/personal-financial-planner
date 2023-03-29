@@ -6,11 +6,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Balance from "../Balance.js";
-import AcquireData from "./AcquireData.js";
 import { RevenueOrExpense } from "../RevenueOrExpense.js";
 import TransactionForm from "./TransactionForm.js";
-import { Link, Route, Routes } from 'react-router-dom';
-import Form from './Forms.js';
+import { Link } from 'react-router-dom';
 
 const style = {
   position: "absolute",
@@ -39,7 +37,7 @@ export default function ModalWelcome() {
     <div>
       {/* <Button onClick={handleOpen}>Create/Edit profile</Button> */}
       <Button variant="contained" color="success" onClick={handleOpen}>
-        Create/Edit profile
+        Begin/Review
       </Button>
       <div className="balanceStat">
         <RevenueOrExpense />
@@ -66,7 +64,9 @@ export default function ModalWelcome() {
             If you would like to delete all financial data held in this system
             click CLEAR.
           </Typography>
-          <Button onClick={AcquireData}>START</Button>
+          <Link to="formName" role="button" className="btn btn-link">
+            START
+          </Link>
           <Button
             onClick={() =>
               setPieState({
@@ -83,16 +83,8 @@ export default function ModalWelcome() {
           <Button>CLEAR</Button>
         </Box>
       </Modal>
-      <Link to="form" role="button" className="btn btn-link">
-        Open Form
-      </Link>
-      <Link to="/" role="button" className="btn btn-link">
-        Close Form
-      </Link>
-      <Routes>
-        <Route path="form" element={<Form />} />
-      </Routes>
-
+      
+      
     </div>
   );
 }

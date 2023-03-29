@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import Moment from "react-moment";
 import {
   AppBar,
@@ -16,7 +16,7 @@ import {
 import SavingsIcon from "@mui/icons-material/Savings";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const pages = ["HOME", "CHARTS", "FORECAST", "SUMMARY"];
+// const pages = ["HOME", "CHARTS", "FORECAST", "SUMMARY"];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -127,12 +127,28 @@ function NavBar() {
                 SUMMARY
               </Button>
               <NavLink
-                to="//form"
+                to="formName"
                 className={({ isActive }) =>
                   isActive ? "nav-link active" : "nav-link"
                 }
               >
-                {/* Form */}
+                {/* FormName */}
+              </NavLink>
+              <NavLink
+                to="formIncome"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                {/* FormName */}
+              </NavLink>
+              <NavLink
+                to="formExpenses"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                {/* FormName */}
               </NavLink>
             </Stack>
           </Box>

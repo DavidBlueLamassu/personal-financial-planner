@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { DiagramMaker } from "../../App.js";
 import React from 'react';
-// import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
 import TableMaker from "./TableMaker.js";
-// import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
+
+const demoUser = "Jane Smith";
 
 const styles = {
   totalContainer: {
@@ -55,20 +55,8 @@ function Summary() {
   balance = totalIncome - totalExpenses; 
   return (
     <div>
-      <h1>Summary</h1>
-      <p>
-        Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis
-        molestie urna. Aliquam semper ultrices varius. Aliquam faucibus sit amet
-        magna a ultrices. Aenean pellentesque placerat lacus imperdiet
-        efficitur. In felis nisl, luctus non ante euismod, tincidunt bibendum
-        mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-        posuere, eget tristique dui dapibus. Maecenas fermentum elementum
-        faucibus. Quisque nec metus vestibulum, egestas massa eu, sollicitudin
-        ipsum. Nulla facilisi. Sed ut erat ligula. Nam tincidunt nunc in nibh
-        dictum ullamcorper. Class aptent taciti sociosqu ad litora torquent per
-        conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at
-        rhoncus. Etiam vel condimentum magna, quis tempor nulla.
-      </p>
+      <h1>Summary of {demoUser}'s Monthly Income and Expenditure</h1>
+      
       <h4 style={styles.totalContainer}>Monthly Income:</h4>
       <div style={styles.totalContainer}>
       {TableMakerIncome()}
