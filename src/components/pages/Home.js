@@ -7,14 +7,13 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Balance from "../Balance.js";
 import { RevenueOrExpense } from "../RevenueOrExpense.js";
-import TransactionForm from "./TransactionForm.js";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json";
 import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
 import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
 import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
-import DemoName from './assets/DemoName.json';
-import DemoSavings from './assets/DemoSavings.json';
+import DemoName from "./assets/DemoName.json";
+import DemoSavings from "./assets/DemoSavings.json";
 
 const style = {
   position: "absolute",
@@ -51,9 +50,7 @@ export default function ModalWelcome() {
         <RevenueOrExpense />
         <Balance />
       </div>
-      <div>
-        <TransactionForm />
-      </div>
+      <div>...</div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -85,13 +82,14 @@ export default function ModalWelcome() {
                 tableIncome: incomePieChartKey,
                 tableExpenses: expensesPieChartKey,
                 name: username,
-                savings: userSavings
-              })
+                savings: userSavings,
+              });
             }}
           >
             REVIEW
           </Button>
-          <Button onClick={() => {
+          <Button
+            onClick={() => {
               clearLocalStorage();
               setPieState({
                 ...pieState,
@@ -100,14 +98,14 @@ export default function ModalWelcome() {
                 tableIncome: DemoIncomePieChartKeyed,
                 tableExpenses: DemoExpensesPieChartKeyed,
                 name: DemoName,
-                savings: DemoSavings
-              })
+                savings: DemoSavings,
+              });
             }}
-          >CLEAR</Button>
+          >
+            CLEAR
+          </Button>
         </Box>
       </Modal>
-      
-      
     </div>
   );
 }
@@ -115,7 +113,9 @@ export default function ModalWelcome() {
 function reviewTest() {
   const incomePieChart = JSON.parse(localStorage.getItem("income"));
   if (incomePieChart === null) {
-  alert(`I'm sorry you must first enter data before you can review your finances. Click "Start" to begin.`);
+    alert(
+      `I'm sorry you must first enter data before you can review your finances. Click "Start" to begin.`
+    );
     return;
   }
 }
@@ -127,5 +127,5 @@ function clearLocalStorage() {
   localStorage.removeItem("expensesKey");
   localStorage.removeItem("username");
   localStorage.removeItem("savings");
-  alert("Your information has been deleted.")
+  alert("Your information has been deleted.");
 }
