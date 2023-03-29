@@ -17,6 +17,7 @@ import SavingsIcon from "@mui/icons-material/Savings";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = ["HOME", "CHARTS", "FORECAST", "SUMMARY"];
+const linkRoutes = ["/", "/PieChart", "/Forecast", "/Summary"]
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -71,9 +72,9 @@ function NavBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, i) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu} >
+                  <Typography textAlign="center" component={NavLink} to={linkRoutes[i]}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -87,7 +88,7 @@ function NavBar() {
           >
             PERSONAL FINANCIAL PLANNER
           </Typography>
-          <Stack direction="row" spacing={2} sx={{ display: { sm: "flex" } }}>
+          <Stack direction="row" spacing={2} sx={{ display: { sm: "none", xs: "none" } }}>
             <Button color="inherit" component={NavLink} to="/">
               HOME
             </Button>

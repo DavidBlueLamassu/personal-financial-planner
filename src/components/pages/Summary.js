@@ -7,7 +7,7 @@ import TableMaker from "./TableMaker.js";
 
 const styles = {
   totalContainer: {
-    marginLeft: "500px"
+    // marginLeft: "500px"
   },
   totalText: {
     margin: "0",
@@ -25,18 +25,18 @@ const styles = {
     height: "30px"
   },
   total: {
-    position: "relative",
+    // position: "relative",
     width: "65px",
     background: "#E5E4E4",
-    right: "75px",
+    //right: "75px",
     borderTop: "1px solid black",
     margin: "0"
   },
   totalMain: {
-    position: "relative",
+    // position: "relative",
     width: "65px",
     background: "#E5E4E4",
-    right: "75px",
+    //right: "75px",
     margin: "0"
   }
 }
