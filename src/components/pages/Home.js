@@ -9,6 +9,10 @@ import Balance from "../Balance.js";
 import { RevenueOrExpense } from "../RevenueOrExpense.js";
 import TransactionForm from "./TransactionForm.js";
 import { Link } from 'react-router-dom';
+import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json";
+import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
+import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
+import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
 
 const style = {
   position: "absolute",
@@ -68,7 +72,8 @@ export default function ModalWelcome() {
             START
           </Link>
           <Button
-            onClick={() =>
+            onClick={() => {
+              reviewTest();
               setPieState({
                 ...pieState,
                 pieArrayIncome: incomePieChart,
@@ -76,15 +81,43 @@ export default function ModalWelcome() {
                 tableIncome: incomePieChartKey,
                 tableExpenses: expensesPieChartKey,
               })
-            }
+            }}
           >
             REVIEW
           </Button>
-          <Button>CLEAR</Button>
+          <Button onClick={() => {
+              clearLocalStorage();
+              setPieState({
+                ...pieState,
+                pieArrayIncome: DemoIncomePieChart,
+                pieArrayExpenses: DemoExpensesPieChart,
+                tableIncome: DemoIncomePieChartKeyed,
+                tableExpenses: DemoExpensesPieChartKeyed,
+              })
+            }}
+          >CLEAR</Button>
         </Box>
       </Modal>
       
       
     </div>
   );
+}
+
+function reviewTest() {
+  const incomePieChart = JSON.parse(localStorage.getItem("income"));
+  if (incomePieChart === null) {
+  alert(`I'm sorry you must first enter data before you can review your finances. Click "Start" to begin.`);
+    return;
+  }
+}
+
+function clearLocalStorage() {
+  localStorage.removeItem("income");
+  localStorage.removeItem("expenses");
+  localStorage.removeItem("incomeKey");
+  localStorage.removeItem("expensesKey");
+  localStorage.removeItem("username");
+  localStorage.removeItem("savings");
+  alert("Your information has been deleted.")
 }
