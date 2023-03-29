@@ -11,6 +11,11 @@ import DemoExpensesPieChart from "./components/pages/assets/DemoExpensesPieChart
 import DemoIncomePieChart from "./components/pages/assets/DemoIncomePieChart.json";
 import DemoIncomePieChartKeyed from "./components/pages/assets/DemoIncomePieChartKeyed.json";
 import DemoExpensesPieChartKeyed from "./components/pages/assets/DemoExpensesPieChartKeyed.json";
+import FormName from './components/pages/FormName';
+import FormIncome from './components/pages/FormIncome';
+import FormExpenses from './components/pages/FormExpenses';
+import DemoName from './components/pages/assets/DemoName.json';
+import DemoSavings from './components/pages/assets/DemoSavings.json';
 
 export const DiagramMaker = createContext();
 
@@ -19,7 +24,9 @@ function App() {
     pieArrayIncome: DemoIncomePieChart,
     pieArrayExpenses: DemoExpensesPieChart,
     tableIncome: DemoIncomePieChartKeyed,
-    tableExpenses: DemoExpensesPieChartKeyed
+    tableExpenses: DemoExpensesPieChartKeyed,
+    name: DemoName,
+    savings: DemoSavings
     }); 
   return (
     <DiagramMaker.Provider value={[pieState, setPieState]}>
@@ -35,6 +42,9 @@ function App() {
             <Route path="pieChart" element={<PieChart />} />
             <Route path="forecast" element={<Forecast />} />
             <Route path="summary" element={<Summary />} />
+            <Route path="formName/*" element={<FormName/>} />
+            <Route path="formIncome/*" element={<FormIncome />} />
+            <Route path="formExpenses/*" element={<FormExpenses />} />
           </Routes>
         </div>
       </Router>

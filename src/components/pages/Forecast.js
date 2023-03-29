@@ -1,12 +1,12 @@
 import React from "react";
+import { useContext } from "react";
+import { DiagramMaker } from "../../App.js";
 
 function Forecast() {
+  const [pieState] = useContext(DiagramMaker);
   return (
     <div>
-      <h1>Forecast</h1>
-      <p>
-      Financial Forecast Based on Current Monthly Income and Expenditure
-      </p>
+      <h1>{pieState.name}'s Financial Forecast</h1>
     </div>
   );
 }

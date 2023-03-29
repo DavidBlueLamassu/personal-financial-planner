@@ -6,11 +6,15 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Balance from "../Balance.js";
-import AcquireData from "./AcquireData.js";
 import { RevenueOrExpense } from "../RevenueOrExpense.js";
 import TransactionForm from "./TransactionForm.js";
-import { Link, Route, Routes } from 'react-router-dom';
-import Form from './Forms.js';
+import { Link } from 'react-router-dom';
+import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json";
+import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
+import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
+import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
+import DemoName from './assets/DemoName.json';
+import DemoSavings from './assets/DemoSavings.json';
 
 const style = {
   position: "absolute",
@@ -33,13 +37,15 @@ export default function ModalWelcome() {
   const expensesPieChart = JSON.parse(localStorage.getItem("expenses"));
   const incomePieChartKey = JSON.parse(localStorage.getItem("incomeKey"));
   const expensesPieChartKey = JSON.parse(localStorage.getItem("expensesKey"));
+  const username = localStorage.getItem("username");
+  const userSavings = localStorage.getItem("savings");
   console.log("Home Page");
   console.log(incomePieChart);
   return (
     <div>
       {/* <Button onClick={handleOpen}>Create/Edit profile</Button> */}
       <Button variant="contained" color="success" onClick={handleOpen}>
-        Create/Edit profile
+        Begin/Review
       </Button>
       <div className="balanceStat">
         <RevenueOrExpense />
@@ -66,33 +72,60 @@ export default function ModalWelcome() {
             If you would like to delete all financial data held in this system
             click CLEAR.
           </Typography>
-          <Button onClick={AcquireData}>START</Button>
+          <Link to="formName" role="button" className="btn btn-link">
+            START
+          </Link>
           <Button
-            onClick={() =>
+            onClick={() => {
+              reviewTest();
               setPieState({
                 ...pieState,
                 pieArrayIncome: incomePieChart,
                 pieArrayExpenses: expensesPieChart,
                 tableIncome: incomePieChartKey,
                 tableExpenses: expensesPieChartKey,
+                name: username,
+                savings: userSavings
               })
-            }
+            }}
           >
             REVIEW
           </Button>
-          <Button>CLEAR</Button>
+          <Button onClick={() => {
+              clearLocalStorage();
+              setPieState({
+                ...pieState,
+                pieArrayIncome: DemoIncomePieChart,
+                pieArrayExpenses: DemoExpensesPieChart,
+                tableIncome: DemoIncomePieChartKeyed,
+                tableExpenses: DemoExpensesPieChartKeyed,
+                name: DemoName,
+                savings: DemoSavings
+              })
+            }}
+          >CLEAR</Button>
         </Box>
       </Modal>
-      <Link to="form" role="button" className="btn btn-link">
-        Open Form
-      </Link>
-      <Link to="/" role="button" className="btn btn-link">
-        Close Form
-      </Link>
-      <Routes>
-        <Route path="form" element={<Form />} />
-      </Routes>
-
+      
+      
     </div>
   );
+}
+
+function reviewTest() {
+  const incomePieChart = JSON.parse(localStorage.getItem("income"));
+  if (incomePieChart === null) {
+  alert(`I'm sorry you must first enter data before you can review your finances. Click "Start" to begin.`);
+    return;
+  }
+}
+
+function clearLocalStorage() {
+  localStorage.removeItem("income");
+  localStorage.removeItem("expenses");
+  localStorage.removeItem("incomeKey");
+  localStorage.removeItem("expensesKey");
+  localStorage.removeItem("username");
+  localStorage.removeItem("savings");
+  alert("Your information has been deleted.")
 }
