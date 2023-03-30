@@ -23,6 +23,6 @@ N/A
 ## Tests
 N/A
 
-## https://github.com/DavidBlueLamassu/personal-financial-planner
+## https://jade-cannoli-69b45a.netlify.app/
 
 ![Screenshot of the Personal Financial Planner](./public/assets/financial-planner-screenshot.png)
