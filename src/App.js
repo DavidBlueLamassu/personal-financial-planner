@@ -15,11 +15,14 @@ import FormName from './components/pages/FormName';
 import FormIncome from './components/pages/FormIncome';
 import FormExpenses from './components/pages/FormExpenses';
 import DemoName from './components/pages/assets/DemoName.json';
-// import DemoSavings from './components/pages/assets/DemoSavings.json';
 
 export const DiagramMaker = createContext();
 
 const DemoSavings = 5000;
+
+//Context set up so that state can be changed via the review button in Home.js. This code was derives from a YouTube tutorial by 
+//Caleb Curry: CalebCurry, "useContext Hook Introduction - React Tutorial 46", YouTube (2022), last viewed: 30 March 2023: 
+//https://www.youtube.com/watch?v=5ianRgE5ByU
 
 function App() {
   const [pieState, setPieState] = useState({

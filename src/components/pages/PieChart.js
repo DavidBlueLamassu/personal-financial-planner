@@ -16,6 +16,9 @@ const styles = {
   },
 };
 
+//Main component for the PieChart.js page; contains two pie charts made using "react-minimal-pie-chart"and two legends 
+//built with props and the LegendMakerIncome and LegendMakerExpenses functions
+
 function Chart() {
   const [pieState] = useContext(DiagramMaker);
   return (
@@ -46,6 +49,8 @@ function Chart() {
     </div>
   );
 }
+
+//Two functions to make income and expenses legends with either demo or user data and props from DemoExpensesLegend.js
 
 function LegendMakerIncome() {
   const [pieState] = useContext(DiagramMaker);

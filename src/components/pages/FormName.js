@@ -35,6 +35,9 @@ class FormName extends React.Component {
       `Thank you ${username}. Your information has been saved. Please press "Next" to continue.`
     );
   };
+
+  //A form to collect name and savings data
+
   render() {
     return (
       <div className="form-container">

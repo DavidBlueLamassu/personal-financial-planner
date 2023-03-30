@@ -42,6 +42,11 @@ class FormIncome extends React.Component {
       value: numberIncome,
       color: colorSelectorKey(),
     };
+
+    //User data is pushed into arrays which will later be held in localStorage. One array includes ids for making legends 
+    //and tables using .map; the other holds data in the correct format for making pie charts. Both arrays hold colors
+    //for making the pie charts and legends. Ids are made using the j variable.
+
     incomeArray.push(incomeObject);
     incomeArrayKey.push(incomeObjectKey);
 
@@ -51,6 +56,9 @@ class FormIncome extends React.Component {
     event.target.reset();
     j++;
   };
+
+  //Form for collecting user income data.
+
   render() {
     return (
       <div className="form-container">
@@ -102,6 +110,8 @@ class FormIncome extends React.Component {
   }
 }
 
+//function to store user data in localStorage; and to reset iterating variables 
+
 function incomeFunction() {
   console.log("FormIncome test:");
   console.log(incomeArray);
@@ -115,6 +125,9 @@ function incomeFunction() {
   l = 0;
   alert("Thank you. Your income information has been saved.");
 }
+
+//Two functions to select colors for the pie chart and legend components. Having two separate functions ensures that
+//that both legend and pie chart colors are consistent
 
 function colorSelector() {
   const colorArray = [
