@@ -4,6 +4,10 @@ import React from 'react';
 import TableMaker from "./TableMaker.js";
 
 const styles = {
+  name: {
+    textAlign: "center",
+    marginBottom: "50px"
+  },
   totalContainer: {
     marginLeft: "500px"
   },
@@ -53,38 +57,46 @@ function Summary() {
   balance = totalIncome - totalExpenses; 
   return (
     <div>
-      <h1>Summary of {pieState.name}'s Monthly Income and Expenditure</h1>
+      <h1 style={styles.name}>Summary of {pieState.name}'s Monthly Income and Expenditure</h1>
+      <div className="row">
+        <div className="row">
+          <h4 style={styles.totalContainer}>Monthly Income:</h4>
+          <div style={styles.totalContainer}>
+            {TableMakerIncome()}
+          </div>
+          <div className="row" style={styles.totalContainer}>
+            <p style={styles.totalText}>Total Income:</p>
+            <p style={styles.total}>£{totalIncome}</p>
+          </div>
+          </div>
       
-      <h4 style={styles.totalContainer}>Monthly Income:</h4>
-      <div style={styles.totalContainer}>
-      {TableMakerIncome()}
-      </div>
-      <div className="row" style={styles.totalContainer}>
-        <p style={styles.totalText}>Total Income:</p>
-        <p style={styles.total}>£{totalIncome}</p>
-      </div>
-      <h4 style={styles.totalContainer}>Monthly Expenses:</h4>
-      <div style={styles.totalContainer}>
-        {TableMakerExpenses()}
-      </div>
-      <div className="row" style={styles.totalContainer}>
-        <p style={styles.totalText}>Total Expenses:</p>
-        <p style={styles.total}>£{totalExpenses}</p>
-      </div>
-      <h4 style={styles.totalContainer}>Monthly Balance</h4>
-      <div className="row" style={styles.totalContainer}>
-        <p style={styles.totalMainText}>Monthly Income</p>
-        <p style={styles.totalMain}>£{totalIncome}</p>
-      </div>
-      <div className="row" style={styles.totalContainer}>
-        <p style={styles.totalMainText}>Monthly Expenses:</p>
-        <p style={styles.totalMain}>£{totalExpenses}</p>
-      </div>
-      <div className="row" style={styles.totalContainer}>
-        <p style={styles.totalText}>Balance:</p>
-        <p style={styles.total}>£{balance}</p>
-      </div>
+        <div className="row">
+          <h4 style={styles.totalContainer}>Monthly Expenses:</h4>
+          <div style={styles.totalContainer}>
+            {TableMakerExpenses()}
+          </div>
+          <div className="row" style={styles.totalContainer}>
+            <p style={styles.totalText}>Total Expenses:</p>
+            <p style={styles.total}>£{totalExpenses}</p>
+          </div>
+        </div>
 
+        <div className="row">
+          <h4 style={styles.totalContainer}>Monthly Balance</h4>
+          <div className="row" style={styles.totalContainer}>
+            <p style={styles.totalMainText}>Monthly Income</p>
+            <p style={styles.totalMain}>£{totalIncome}</p>
+          </div>
+          <div className="row" style={styles.totalContainer}>
+            <p style={styles.totalMainText}>Monthly Expenses:</p>
+            <p style={styles.totalMain}>£{totalExpenses}</p>
+          </div>
+          <div className="row" style={styles.totalContainer}>
+            <p style={styles.totalText}>Balance:</p>
+            <p style={styles.total}>£{balance}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

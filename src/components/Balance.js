@@ -1,5 +1,5 @@
 import React from "react";
-import CcyFormatter from "./pages/assets/CcyFormatter";
+// import CcyFormatter from "./pages/assets/CcyFormatter";
 // import { GlobalContext } from '../context/GlobalState';
 
 //Money formatter function

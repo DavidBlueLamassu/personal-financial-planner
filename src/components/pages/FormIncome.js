@@ -65,7 +65,7 @@ class FormIncome extends React.Component {
             click "Save" Then click "Next" to proceed to the next section.
           </p>
           <article>
-            <label for="incomeSource" className="col-lg-4 col-md-6 col-sm-12">
+            <label htmlFor="incomeSource" className="col-lg-4 col-md-6 col-sm-12">
               Income source:{" "}
             </label>
 
@@ -76,7 +76,7 @@ class FormIncome extends React.Component {
               id="incomeSource"
               placeholder="Insert income source"
             />
-            <label for="incomeVal" className="col-lg-4 col-md-6 col-sm-12">
+            <label htmlFor="incomeVal" className="col-lg-4 col-md-6 col-sm-12">
               Monthly Income:{" "}
             </label>
             <input

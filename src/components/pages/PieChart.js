@@ -6,6 +6,10 @@ import IncomeLegend from "./DemoIncomeLegend.js";
 import ExpensesLegend from "./DemoExpensesLegend.js";
 
 const styles = {
+  name: {
+    textAlign: "center",
+    marginBottom: "50px"
+  },
   chart: {
     height: "250px",
     width: "250px",
@@ -17,7 +21,7 @@ function Chart() {
   return (
     <div>
       <div className="row">
-        <h1>{pieState.name}'s Finances</h1>
+        <h1 style={styles.name}>{pieState.name}'s Finances</h1>
       </div>
       <div className="d-flex justify-content-center">
         <div className="row incomePie">
