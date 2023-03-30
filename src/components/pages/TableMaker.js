@@ -1,3 +1,6 @@
+//A props file for the expenses and income tables in Summary.js. This is used both for demo and user data. The data 
+//is switched using context and state hooks.
+
 function TableMaker(props) {
     const styles = {
         container: {

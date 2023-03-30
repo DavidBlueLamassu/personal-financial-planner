@@ -5,6 +5,7 @@ import { LineChart } from 'react-chartkick'
 import 'chartkick/chart.js'
 import moment from 'moment';
 
+//Variables to set up the line graph displayed on this page using chartkick
 let time = moment();
 let presentMonth = time.format("MMMM YYYY");
 let monthOne = moment().add(-1, "months").format("MMMM YYYY");
@@ -14,7 +15,8 @@ let monthFour = moment().add(3, "months").format("MMMM YYYY");
 let monthFive = moment().add(4, "months").format("MMMM YYYY");
 const balance = localStorage.getItem("balance"); 
 const balanceInteger = parseInt(balance);
-// const demoSavings = 5000;
+
+//Main page component
 
 function Forecast() {
   const [pieState] = useContext(DiagramMaker);
@@ -25,6 +27,8 @@ function Forecast() {
     </div>
   );
 }
+
+//Line graph component; demo and user data are switched using context and state hooks
 
 function LineGraph() {
   const [pieState] = useContext(DiagramMaker);

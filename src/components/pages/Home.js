@@ -26,10 +26,17 @@ const style = {
   p: 4,
 };
 
+//Page component for Home.js; this includes a modal
+
 export default function ModalWelcome() {
+ 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  
+  //Variables to allow state to be changed in the pie charts, legends, graph, tables and personalised headings throughout
+  //the webpage
+
   const [pieState, setPieState] = useContext(DiagramMaker);
   const incomePieChart = JSON.parse(localStorage.getItem("income"));
   const expensesPieChart = JSON.parse(localStorage.getItem("expenses"));
@@ -68,6 +75,7 @@ export default function ModalWelcome() {
           <Link to="formName" role="button" className="btn btn-link">
             START
           </Link>
+          {/* Functions to check there is user date in localStorage and to change state*/}
           <Button
             onClick={() => {
               reviewTest();
@@ -84,6 +92,7 @@ export default function ModalWelcome() {
           >
             REVIEW
           </Button>
+          {/* Functions to clear localStorage and to return state to demo data*/}
           <Button
             onClick={() => {
               clearLocalStorage();
@@ -107,6 +116,9 @@ export default function ModalWelcome() {
 }
 
 function reviewTest() {
+  //This function prevents the state change from demo to user data should user date not have been entered into localStorage,
+  //thereby preventing errors.
+  
   const incomePieChart = JSON.parse(localStorage.getItem("income"));
   const expensesPieChart = JSON.parse(localStorage.getItem("expenses"));
   const incomePieChartKey = JSON.parse(localStorage.getItem("incomeKey"));
@@ -123,6 +135,9 @@ function reviewTest() {
 }
 
 function clearLocalStorage() {
+  
+  //Clears all peronsonal financial data from localStorage
+
   localStorage.removeItem("income");
   localStorage.removeItem("expenses");
   localStorage.removeItem("incomeKey");

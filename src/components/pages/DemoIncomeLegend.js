@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { DiagramMaker } from "../../App.js";
-// import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
+
+//A props file for the income legend in PieChart.js. This is used both for demo and user data. The data is switched using 
+//context and state hooks.
 
 function IncomeLegend(props) {
     const [pieState] = useContext(DiagramMaker);

@@ -23,6 +23,6 @@ N/A
 ## Tests
 N/A
 
-## https://davidbluelamassu.github.io/react-portfolio/
+## https://github.com/DavidBlueLamassu/personal-financial-planner
 
-![Screenshot of the Personal Financial Planner](./public/assets/images/react-portfolio-screenshot.png)
+![Screenshot of the Personal Financial Planner](./public/assets/financial-planner-screenshot.png)

@@ -41,6 +41,11 @@ class FormExpenses extends React.Component {
       value: numberExpenses,
       color: colorSelectorKey(),
     };
+
+    //User data is pushed into arrays which will later be held in localStorage. One array includes ids for making legends 
+    //and tables using .map; the other holds data in the correct format for making pie charts. Both arrays hold colors
+    //for making the pie charts and legends. Ids are made using the k variable.
+
     expensesArray.push(expensesObject);
     expensesArrayKey.push(expensesObjectKey);
 
@@ -50,6 +55,8 @@ class FormExpenses extends React.Component {
     event.target.reset();
     k++;
   };
+
+  //Form for collecting user expenses data.
 
   render() {
     return (
@@ -107,6 +114,8 @@ class FormExpenses extends React.Component {
   }
 }
 
+//function to store user data in localStorage; and to reset iterating variables 
+
 function expensesFunction() {
   console.log("FormExpenses test:");
   console.log(expensesArray);
@@ -123,6 +132,9 @@ function expensesFunction() {
     `Please click "Finish", then click "Review" in the main menu. You may then view you financial analysis in Charts, Forecasts and Summary.`
   );
 }
+
+//Two functions to select colors for the pie chart and legend components. Having two separate functions ensures that
+//that both legend and pie chart colors are consistent
 
 function colorSelector() {
   const colorArray = [

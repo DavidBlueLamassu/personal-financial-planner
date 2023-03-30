@@ -43,6 +43,8 @@ const styles = {
   }
 }
 
+//Page component for Summary.js. This includes income and expenes tables made using props from TableMaker.js
+
 function Summary() {
   let totalIncome = 0;
   let totalExpenses = 0;
@@ -100,6 +102,9 @@ function Summary() {
     </div>
   );
 }
+
+//These functions make tables using props from the TableMake.js file. User and demo and switched using State and Context
+//hooks.
 
 function TableMakerIncome() {
   const [pieState] = useContext(DiagramMaker);
