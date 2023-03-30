@@ -5,15 +5,12 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import Balance from "../Balance.js";
-import { RevenueOrExpense } from "../RevenueOrExpense.js";
 import { Link } from "react-router-dom";
 import DemoExpensesPieChart from "./assets/DemoExpensesPieChart.json";
 import DemoIncomePieChart from "./assets/DemoIncomePieChart.json";
 import DemoIncomePieChartKeyed from "./assets/DemoIncomePieChartKeyed.json";
 import DemoExpensesPieChartKeyed from "./assets/DemoExpensesPieChartKeyed.json";
 import DemoName from "./assets/DemoName.json";
-// import DemoSavings from "./assets/DemoSavings.json";
 
 const DemoSavings = 5000;
 
@@ -49,11 +46,7 @@ export default function ModalWelcome() {
       <Button variant="contained" color="success" onClick={handleOpen}>
         Begin/Review
       </Button>
-      <div className="balanceStat">
-        <RevenueOrExpense />
-        <Balance />
-      </div>
-      <div>...</div>
+      
       <Modal
         open={open}
         onClose={handleClose}
@@ -115,7 +108,13 @@ export default function ModalWelcome() {
 
 function reviewTest() {
   const incomePieChart = JSON.parse(localStorage.getItem("income"));
-  if (incomePieChart === null) {
+  const expensesPieChart = JSON.parse(localStorage.getItem("expenses"));
+  const incomePieChartKey = JSON.parse(localStorage.getItem("incomeKey"));
+  const expensesPieChartKey = JSON.parse(localStorage.getItem("expensesKey"));
+  const username = localStorage.getItem("username");
+  const userSavings = localStorage.getItem("savings");
+  if (incomePieChart === null || expensesPieChart === null || incomePieChartKey === null || expensesPieChartKey === null || 
+    username === null || userSavings === null) {
     alert(
       `I'm sorry you must first enter data before you can review your finances. Click "Start" to begin.`
     );
