@@ -67,7 +67,7 @@ class FormExpenses extends React.Component {
             </p>
             <article>
               <label
-                for="expenseSource"
+                htmlFor="expenseSource"
                 className="col-lg-4 col-md-6 col-sm-12"
               >
                 Expenses Name (Rent etc.):{" "}
@@ -80,7 +80,7 @@ class FormExpenses extends React.Component {
                 placeholder="Insert expense source"
               />
 
-              <label for="expenseVal" className="col-lg-4 col-md-6 col-sm-12">
+              <label htmlFor="expenseVal" className="col-lg-4 col-md-6 col-sm-12">
                 Expenses Amount:
               </label>
               <input

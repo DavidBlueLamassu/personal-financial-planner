@@ -46,7 +46,7 @@ class FormName extends React.Component {
               and your total savings as of 1st {lastMonth}.{" "}
             </p>
             <article>
-              <label for="nameInput" className="col-lg-4 col-md-6 col-sm-12">
+              <label htmlFor="nameInput" className="col-lg-4 col-md-6 col-sm-12">
                 Name:{" "}
               </label>
               <input
@@ -56,7 +56,7 @@ class FormName extends React.Component {
                 id="nameInput"
                 placeholder="Insert name"
               />
-              <label for="savingsInput" className="col-lg-4 col-md-6 col-sm-12">
+              <label htmlFor="savingsInput" className="col-lg-4 col-md-6 col-sm-12">
                 Savings:{" "}
               </label>
               <input
